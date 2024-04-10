@@ -42,7 +42,7 @@ public final class PersonFactory {
         return Stream.generate(this :: createRandomPerson)
                 .limit(listSize)
                 .collect(Collectors.toList());
-    }
+    } // ListConverter DONE
 
 
     /**
@@ -50,8 +50,10 @@ public final class PersonFactory {
      * @return - Array of Person objects
      */ // TODO
     public Person[] createPersonArray(int arrayLength) {
-        return null;
-    }
+        return Stream.generate(this :: createRandomPerson)
+                .limit(arrayLength)
+                .toArray(Person[]:: new);
+    } // ArrayConverter DONE
 
 
     /**
@@ -61,6 +63,7 @@ public final class PersonFactory {
      * @return - Stream representation of collection of Person objects
      */ // TODO
     public Stream<Person> createPersonStream(int streamCount) {
-        return null;
-    }
+        return Stream.generate(this :: createRandomPerson)
+                .limit(streamCount);
+    } // StreamConverter DONE
 }
