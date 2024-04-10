@@ -39,7 +39,9 @@ public final class PersonFactory {
      * @return - ArrayList of Person objects
      */ // TODO
     public List<Person> createPersonList(int listSize) {
-        return null;
+        return Stream.generate(this :: createRandomPerson)
+                .limit(listSize)
+                .collect(Collectors.toList());
     }
 
 
