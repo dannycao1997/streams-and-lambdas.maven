@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 // https://www.geeksforgeeks.org/stream-in-java/
 // https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
 // https://reflectoring.io/comprehensive-guide-to-java-streams/
-    
+
 public class StreamFilter {
     private final Stream<Person> personStream;
     public final String startingCharacter;
@@ -63,6 +63,7 @@ public class StreamFilter {
     public List<Person> toListMultiLine() {
         return this.personStream.filter(person -> person.getName().startsWith(startingCharacter))
                 .collect(Collectors.toList()); // list to multiline
+        // need to redo
     }
 
 

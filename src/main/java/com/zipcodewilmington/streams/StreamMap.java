@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+//https://www.baeldung.com/java-stream-operations-on-strings
+
 /**
  * Created by leon on 5/24/17.
  */
@@ -18,7 +20,7 @@ public class StreamMap {
      * @return - a Stream of single characters
      */ //TODO
     public static Stream<String> letters(String someWord) {
-        return null;
+        return Stream.of(someWord);
     }
 
     /**
