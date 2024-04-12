@@ -16,6 +16,7 @@ import java.util.stream.Stream;
 // https://www.geeksforgeeks.org/stream-in-java/
 // https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
 // https://reflectoring.io/comprehensive-guide-to-java-streams/
+    
 public class StreamFilter {
     private final Stream<Person> personStream;
     public final String startingCharacter;
@@ -33,7 +34,7 @@ public class StreamFilter {
      * @param startingCharacter - character to filter by
      */ //TODO
     public StreamFilter(Person[] people, Character startingCharacter) {
-        this(Arrays.stream(people), startingCharacter);
+        this(Arrays.stream(people), startingCharacter); // array of person objects
     }
 
     /**
@@ -41,7 +42,7 @@ public class StreamFilter {
      * @param startingCharacter - character to filter by
      */ //TODO
     public StreamFilter(List<Person> people, Character startingCharacter) {
-        this(people.stream(), startingCharacter);
+        this(people.stream(), startingCharacter); // list of person objects
     }
 
 
@@ -61,7 +62,7 @@ public class StreamFilter {
      */ //TODO
     public List<Person> toListMultiLine() {
         return this.personStream.filter(person -> person.getName().startsWith(startingCharacter))
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()); // list to multiline
     }
 
 
@@ -70,7 +71,8 @@ public class StreamFilter {
      * @return a list of person objects whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListOneLine() {
-        return null;
+        return this.personStream.filter(p -> p.getName().startsWith(startingCharacter))
+                .collect(Collectors.toList()); // list to one line
     }
 
 
@@ -79,7 +81,8 @@ public class StreamFilter {
      * @return an array of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public Person[] toArrayOneLine() {
-        return null;
+        return this.personStream.filter(p -> p.getName().startsWith(startingCharacter))
+                .toArray(Person[]::new); // array to one line
     }
 
 
@@ -89,7 +92,7 @@ public class StreamFilter {
      */ //TODO
     public Person[] toArrayMultiLine() {
         return this.personStream.filter(person -> person.getName().startsWith(startingCharacter))
-                .toArray(Person[]::new);
+                .toArray(Person[]::new); // array to multiline
     }
 
 }
